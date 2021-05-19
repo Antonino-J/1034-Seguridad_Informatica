@@ -25,6 +25,7 @@ contract JuegoDeUrnaConBolas{
         bolas_negras = _bolas_negras;
         require(bolas_negras == 3 || bolas_negras == 5 || bolas_negras == 7 || bolas_negras == 9, "Numero de bolas negras incorrecto: Elige entre 3, 5, 7 o 9 bolas negras");
         require(msg.value >= 1 * 10**18, "Coste del juego: 1 ether");
+        
         /// @title "GANANCIAS"
         /// "Con 3 bolas negras: 1.25 ether"
         /// "Con 5 bolas negras: 2.5 ether"
