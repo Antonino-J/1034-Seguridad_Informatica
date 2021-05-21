@@ -2,9 +2,7 @@
 
 pragma solidity >=0.7.0 <0.8.0;
 
-contract CompraVentaCoches{
-    // uint[][] private base_datos =   // base de datos donde estaran almacenados los precios iniciales de cada modelo 
-    
+contract CompraVentaCoches{    
     uint valor_inicial;
     uint resta;
     uint year;
@@ -16,7 +14,7 @@ contract CompraVentaCoches{
     uint precio_venta;
     
     string modelo = new string(2);
-    string texto = "Actualmente tenemos en nuestra base de datos estos coches disponibles: A1, A3, A4, A5, A6, A7, A8; Q2, Q3, Q4, Q5, Q7, Q8; ET, ETGT; R8; TT";  // Para poder ver que modelos estan disponibles para tasar
+    string texto = "Actualmente tenemos en nuestra base de datos estos modelos de Audi disponibles: A1, A3, A4, A5, A6, A7, A8; Q2, Q3, Q4, Q5, Q7, Q8; ET, ETGT; R8; TT";  // Para poder ver que modelos estan disponibles para tasar
     
     event Precios(string, uint, string, uint);
     
