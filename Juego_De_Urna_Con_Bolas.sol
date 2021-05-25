@@ -15,7 +15,12 @@ contract JuegoDeUrnaConBolas{
         propietario = msg.sender;
     }
     
-    function getFondos() public view returns(uint fondos) {
+    function getFondosEther() public view returns(uint fondos) {
+        fondos = address(this).balance / (10**18);
+        return fondos;
+    }
+    
+    function getFondosWei() public view returns(uint fondos) {
         fondos = address(this).balance;
         return fondos;
     }
@@ -24,13 +29,12 @@ contract JuegoDeUrnaConBolas{
     function juego(uint _bolas_negras) public payable {
         bolas_negras = _bolas_negras;
         require(bolas_negras == 3 || bolas_negras == 5 || bolas_negras == 7 || bolas_negras == 9, "Numero de bolas negras incorrecto: Elige entre 3, 5, 7 o 9 bolas negras");
-        require(msg.value >= 1 * 10**18, "Coste del juego: 1 ether");
-        
+        require(msg.value >= 0.1 * 10**18, "Coste del juego: 0.1 ether");
         /// @title "GANANCIAS"
-        /// "Con 3 bolas negras: 1.25 ether"
-        /// "Con 5 bolas negras: 2.5 ether"
-        /// "Con 7 bolas negras: 3.5 ether"
-        /// "Con 9 bolas negras: 4.5 ether"
+        /// "Con 3 bolas negras: 0.125 ether"
+        /// "Con 5 bolas negras: 0.25 ether"
+        /// "Con 7 bolas negras: 0.35 ether"
+        /// "Con 9 bolas negras: 0.45 ether"
         
         if (msg.sender != propietario){  // Si el que juega es el dueño es que quiere introducir fondos al juego (introduce el valor que ha puesto en value al contrato)
             propietario.transfer(msg.value);
@@ -38,18 +42,18 @@ contract JuegoDeUrnaConBolas{
         
         
         if(bolas_negras == 3){
-            beneficio = 1.25 * 10**18;
+            beneficio = 0.125 * 10**18;
         }
         else{
             if(bolas_negras == 5){
-                beneficio = 2.5 * 10**18;
+                beneficio = 0.25 * 10**18;
             }
             else{
                 if(bolas_negras == 7){
-                    beneficio = 3.5 * 10**18;
+                    beneficio = 0.35 * 10**18;
                 }
                 else{  // bolas_negras == 9
-                    beneficio = 4.5 * 10**18;
+                    beneficio = 0.45 * 10**18;
                 }
             }
         }
