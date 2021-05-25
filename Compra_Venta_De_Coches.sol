@@ -2,7 +2,7 @@
 
 pragma solidity >=0.7.0 <0.8.0;
 
-contract CompraVentaCoches{    
+contract CompraVentaCoches{
     uint valor_inicial;
     uint resta;
     uint year;
